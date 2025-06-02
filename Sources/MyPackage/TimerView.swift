@@ -10,11 +10,13 @@ import Combine
 import SwiftUI
 #endif
 
+@available(iOS 13.0, *)
 #Preview {
     let vm = TimerViewModel(generatedDate: "2025-06-02T19:31:00+07:00")
     TimerView(viewModel: vm)
 }
 
+@available(iOS 13.0, *)
 public class TimerViewModel: ObservableObject {
     public enum ViewState {
         case success
@@ -61,6 +63,7 @@ public class TimerViewModel: ObservableObject {
     }
 }
 
+@available(iOS 13.0, *)
 public struct TimerView: View {
     @ObservedObject var viewModel: TimerViewModel
     @State var time: String
@@ -92,6 +95,7 @@ public struct TimerView: View {
 //    }
 //}
 
+@available(iOS 13.0, *)
 extension View {
     /// A backwards compatible wrapper for iOS 14 `onChange`
     @ViewBuilder public func valueChanged<T: Equatable>(value: T, onChange: @escaping (T) -> Void) -> some View {
