@@ -16,7 +16,7 @@ import SwiftUI
 }
 
 public class TimerViewModel: ObservableObject {
-    enum ViewState {
+    public enum ViewState {
         case success
         case loading
         case error
@@ -62,8 +62,13 @@ public class TimerViewModel: ObservableObject {
 }
 
 public struct TimerView: View {
-    @ObservedObject public var viewModel: TimerViewModel
-    @State public var time: String = "00:00"
+    @ObservedObject var viewModel: TimerViewModel
+    @State var time: String
+    
+    public init(viewModel: TimerViewModel, time: String = "00:00") {
+        self.viewModel = viewModel
+        self.time = time
+    }
     
     public var body: some View {
         VStack {
