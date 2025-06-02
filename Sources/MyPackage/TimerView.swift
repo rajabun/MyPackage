@@ -27,7 +27,7 @@ public class TimerViewModel: ObservableObject {
     @Published var viewState: ViewState
     @Published var generatedDate: String
     
-    init(timer: Cancellable? = nil, timeRemaining: TimeInterval = 10, viewState: ViewState = .success, generatedDate: String = "") {
+    public init(timer: Cancellable? = nil, timeRemaining: TimeInterval = 10, viewState: ViewState = .success, generatedDate: String = "") {
         self.timer = timer
         self.timeRemaining = timeRemaining
         self.viewState = viewState
@@ -89,7 +89,7 @@ public struct TimerView: View {
 
 extension View {
     /// A backwards compatible wrapper for iOS 14 `onChange`
-    @ViewBuilder func valueChanged<T: Equatable>(value: T, onChange: @escaping (T) -> Void) -> some View {
+    @ViewBuilder public func valueChanged<T: Equatable>(value: T, onChange: @escaping (T) -> Void) -> some View {
         if #available(iOS 14.0, *) {
             self.onChange(of: value, perform: onChange)
         } else {
