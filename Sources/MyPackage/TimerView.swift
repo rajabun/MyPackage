@@ -15,7 +15,7 @@ import SwiftUI
     TimerView(viewModel: vm)
 }
 
-class TimerViewModel: ObservableObject {
+public class TimerViewModel: ObservableObject {
     enum ViewState {
         case success
         case loading
@@ -36,7 +36,7 @@ class TimerViewModel: ObservableObject {
         self.startTimer(time: generatedDate)
     }
     
-    func startTimer(time: String) {
+    public func startTimer(time: String) {
         let dates = dateFromString(string: time,
                                    format: .fullDateWithTimezoneWithoutSSS)
         let timeIntervalSeconds = dates.timeIntervalSince(Date())
@@ -61,11 +61,11 @@ class TimerViewModel: ObservableObject {
     }
 }
 
-struct TimerView: View {
+public struct TimerView: View {
     @ObservedObject var viewModel: TimerViewModel
     @State var time: String = "00:00"
     
-    var body: some View {
+    public var body: some View {
         VStack {
             HStack {
                 Text(viewModel.viewState == .success ? "Kadaluwarsa dalam" : "Waktu habis")

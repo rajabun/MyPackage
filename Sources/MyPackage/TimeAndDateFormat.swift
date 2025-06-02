@@ -6,7 +6,7 @@
 
 import Foundation
 
-enum DateFormat {
+public enum DateFormat {
     ///date format: dd-MM-yyyy HH:mm:ss
     case fullDateWithTime
     
@@ -46,7 +46,7 @@ enum DateFormat {
     case custom(format: String)
 }
 
-func dateFromString(string: String, format: DateFormat = .fullDate) -> Date {
+public func dateFromString(string: String, format: DateFormat = .fullDate) -> Date {
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: "id_ID")
     formatter.timeZone = TimeZone.autoupdatingCurrent
@@ -81,7 +81,7 @@ func dateFromString(string: String, format: DateFormat = .fullDate) -> Date {
     return formatter.date(from: string) ?? Date()
 }
 
-func getCurrentDateTime(date: Date = Date(), format: DateFormat = .fullDateWithTime) -> String {
+public func getCurrentDateTime(date: Date = Date(), format: DateFormat = .fullDateWithTime) -> String {
     let formatter = DateFormatter()
     
     formatter.locale = Locale(identifier: "id_ID")
@@ -116,7 +116,7 @@ func getCurrentDateTime(date: Date = Date(), format: DateFormat = .fullDateWithT
     return formatter.string(from: date)
 }
 
-func dateFromApiToString(string: String,
+public func dateFromApiToString(string: String,
                          inputFormat: DateFormat = .fullDate,
                          outputFormat: DateFormat = .fullDateWithTime) -> String {
     let inputDate = dateFromString(string: string, format: inputFormat)
