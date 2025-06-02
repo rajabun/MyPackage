@@ -62,8 +62,8 @@ public class TimerViewModel: ObservableObject {
 }
 
 public struct TimerView: View {
-    @ObservedObject var viewModel: TimerViewModel
-    @State var time: String = "00:00"
+    @ObservedObject public var viewModel: TimerViewModel
+    @State public var time: String = "00:00"
     
     public var body: some View {
         VStack {
